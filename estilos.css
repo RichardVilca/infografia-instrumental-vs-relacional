@@ -107,8 +107,9 @@
  .enfoque-img {
      width: 400px;
      max-width: 100%;
-     height: 220px;
+     height: 200px; /* Solo muestra los primeros 200px de la imagen */
      object-fit: cover;
+     object-position: top; /* Muestra la parte superior de la imagen */
      border-radius: 8px;
      margin: 0 auto 25px auto;
      display: block;
