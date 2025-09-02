@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enfoques de la Tecnología - Infografía Mejorada</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --background-dark: #1a1a2e;
+            --card-dark: #2c2c3e;
+            --text-light: #e0e0e0;
+            --accent-instrumental: #ff00ff; /* Magenta */
+            --accent-relacional: #00ffff;   /* Cyan */
+            --accent-riesgos: #ff8c00;      /* Dark Orange */
+            --accent-potencialidades: #39ff14; /* Neon Green */
+            --header-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            padding: 40px 20px;
+        }
+
+        .infografia-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .header {
+            text-align: center;
+            background: var(--header-gradient);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--accent-relacional);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .header p {
+            font-size: 1.3em;
+            font-weight: 300;
+        }
+
+        .enfoques-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .enfoque-card {
+            background: var(--card-dark);
+            border-radius: 12px;
+            border: 1px solid #444;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .enfoque-card.instrumental:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px var(--accent-instrumental);
+            border-color: var(--accent-instrumental);
+        }
+        
+        .enfoque-card.relacional:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px var(--accent-relacional);
+            border-color: var(--accent-relacional);
+        }
+
+        .enfoque-card h2 {
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-shadow: 0 0 8px;
+        }
+
+        .enfoque-card.instrumental h2 {
+            color: var(--accent-instrumental);
+        }
+
+        .enfoque-card.relacional h2 {
+            color: var(--accent-relacional);
+        }
+
+        .enfoque-img {
+            width: 400px;
+            max-width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 0 auto 25px auto;
+            display: block;
+            background-color: #333;
+            border: 1px solid #555;
+        }
+
+        .caracteristicas ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .caracteristicas li {
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-weight: 400;
+            border-left: 4px solid;
+            transition: background-color 0.3s;
+        }
+        
+        .caracteristicas li:hover {
+            background-color: #3d3d5e;
+        }
+
+        .instrumental .caracteristicas li {
+            border-left-color: var(--accent-instrumental);
+        }
+
+        .relacional .caracteristicas li {
+            border-left-color: var(--accent-relacional);
+        }
+
+        .ejemplo {
+            margin-top: auto;
+            background-color: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+
+        .ejemplo h4 {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .conclusion-card {
+            background: var(--card-dark);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #555;
+        }
+
+        .conclusion-card h3 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .riesgos-potencialidades {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            text-align: left;
+        }
+
+        .seccion h4 {
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .seccion.riesgos h4 {
+            color: var(--accent-riesgos);
+        }
+
+        .seccion.potencialidades h4 {
+            color: var(--accent-potencialidades);
+        }
+
+        .seccion ul {
+            list-style-position: inside;
+        }
+
+        .seccion li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .reflexion-final {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 300;
+            font-style: italic;
+            color: #ccc;
+        }
+
+        @media (max-width: 992px) {
+
+            .enfoques-grid,
+            .riesgos-potencialidades {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .header h1 {
+                font-size: 2.2em;
+            }
+
+            .header p {
+                font-size: 1.1em;
+            }
+            
+            .caracteristicas ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="infografia-container">
+        <header class="header">
+            <h1>Enfoques de la Tecnología</h1>
+            <p>Una perspectiva comparativa: Instrumental vs. Relacional</p>
+        </header>
+
+        <main class="enfoques-grid">
+            <!-- ENFOQUE INSTRUMENTAL -->
+            <section class="enfoque-card instrumental">
+                <h2><i class="icon">🛠️</i> Enfoque Instrumental</h2>
+
+                <img src="/istrumental.jpg" alt="imagen instrumental" class="enfoque-img">
+
+                <div class="caracteristicas">
+                    <ul>
+                        <li><strong>Neutralidad:</strong> La tecnología es una herramienta neutral.</li>
+                        <li><strong>Control:</strong> El ser humano determina completamente su uso.</li>
+                        <li><strong>Evaluación:</strong> Se mide por su eficiencia y funcionalidad técnica.</li>
+                        <li><strong>Responsabilidad:</strong> Recae exclusivamente en el usuario final.</li>
+                        <li><strong>Relación:</strong> Es externa y separada de la sociedad.</li>
+                    </ul>
+                </div>
+
+                <div class="ejemplo">
+                    <h4>Ejemplo: Sistema de Videovigilancia</h4>
+                    <p>Las cámaras son vistas solo como herramientas para reducir incidentes, evaluadas por su calidad
+                        técnica, y la responsabilidad es solo de los operadores.</p>
+                </div>
+            </section>
+
+            <!-- ENFOQUE RELACIONAL -->
+            <section class="enfoque-card relacional">
+                <h2><i class="icon">🌐</i> Enfoque Relacional</h2>
+
+                <img src="/relacional.jpg" alt="imagen relacional" class="enfoque-img">
+
+                <div class="caracteristicas">
+                    <ul>
+                        <li><strong>Co-construcción:</strong> Tecnología y sociedad se moldean mutuamente.</li>
+                        <li><strong>Valores:</strong> La tecnología incorpora ideologías y relaciones de poder.</li>
+                        <li><strong>Evaluación:</strong> Se mide por su impacto social, ético y cultural.</li>
+                        <li><strong>Responsabilidad:</strong> Es compartida entre diseñadores, usuarios y reguladores.
+                        </li>
+                        <li><strong>Relación:</strong> Está integrada e incrustada en el tejido social.</li>
+                    </ul>
+                </div>
+
+                <div class="ejemplo">
+                    <h4>Ejemplo: Redes Sociales Digitales</h4>
+                    <p>Se analiza cómo transforman la comunicación, la identidad y la democracia, con una
+                        responsabilidad compartida entre plataformas, usuarios y sociedad.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="conclusion-card">
+            <h3>🎯 Conclusión: Riesgos y Potencialidades</h3>
+            <div class="riesgos-potencialidades">
+                <div class="seccion riesgos">
+                    <h4>⚠️ Riesgos del Enfoque Instrumental</h4>
+                    <ul>
+                        <li>Ignorar consecuencias sociales no deseadas.</li>
+                        <li>Limitar la responsabilidad de los creadores.</li>
+                        <li>Perpetuar desigualdades existentes.</li>
+                        <li>Visión simplista de problemas complejos.</li>
+                    </ul>
+                </div>
+                <div class="seccion potencialidades">
+                    <h4>✨ Potencialidades del Enfoque Relacional</h4>
+                    <ul>
+                        <li>Fomentar un diseño más ético y responsable.</li>
+                        <li>Anticipar y mitigar impactos negativos.</li>
+                        <li>Promover la equidad y la justicia social.</li>
+                        <li>Generar innovación contextualizada.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="reflexion-final">
+                <p>Combinar ambos enfoques permite crear tecnologías que no solo son eficientes, sino también humanas,
+                    justas y sostenibles.</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>
