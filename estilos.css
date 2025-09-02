@@ -216,6 +216,7 @@
      font-weight: 300;
      font-style: italic;
      color: #ccc;
+    grid-column: 1 / span 2; /* Ocupa las 2 columnas del grid */
  }
 
  @media (max-width: 992px) {
