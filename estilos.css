@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
  :root {
      --background-dark: #1a1a2e;
@@ -244,3 +244,95 @@
          grid-template-columns: 1fr;
      }
  }
+
+/* --- Action Buttons Styles --- */
+.botones-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.btn {
+    background-color: var(--card-dark);
+    color: var(--text-light);
+    border: 1px solid var(--accent-relacional);
+    padding: 12px 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--accent-relacional);
+    color: var(--card-dark);
+    box-shadow: 0 0 20px var(--accent-relacional);
+}
+
+.capture-btn {
+    border-color: var(--accent-instrumental);
+}
+
+.capture-btn:hover {
+    background-color: var(--accent-instrumental);
+    color: var(--card-dark);
+    box-shadow: 0 0 20px var(--accent-instrumental);
+}
+
+
+/* --- Print-specific Styles --- */
+@media print {
+    body {
+        padding: 0;
+        background-color: #fff; /* Ensure background is white for printing */
+        color: #000; /* Ensure text is black for printing */
+    }
+
+    .infografia-container {
+        gap: 20px;
+        box-shadow: none;
+    }
+
+    .botones-container, .header, .enfoque-card:hover {
+        display: none;
+    }
+
+    .enfoque-card, .conclusion-card, .seccion {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        background: #fff;
+        color: #000;
+        break-inside: avoid; /* Avoid breaking cards across pages */
+    }
+
+    .enfoques-grid, .riesgos-potencialidades {
+        display: grid !important; /* Force grid layout for printing */
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .caracteristicas ul {
+        display: grid !important; /* Force grid layout for printing */
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .enfoque-card h2, .seccion h4, .ejemplo h4, .conclusion-card h3, .caracteristicas li {
+        color: #000 !important; /* Override futuristic colors for printing */
+        text-shadow: none;
+    }
+
+    .caracteristicas li, .ejemplo {
+        background-color: #f9f9f9;
+        border-left-color: #ccc !important;
+    }
+
+    .reflexion-final {
+        border-top: 1px solid #ccc;
+        color: #555;
+    }
+}

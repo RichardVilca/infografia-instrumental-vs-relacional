@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enfoques de la Tecnología - Infografía Mejorada</title>
     <link rel="stylesheet" href="estilos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
 
-    <div class="infografia-container">
+    <div id="infografia-completa" class="infografia-container">
         <header class="header">
             <h1>Enfoques de la Tecnología</h1>
             <p>Una perspectiva comparativa: Instrumental vs. Relacional</p>
@@ -89,6 +90,28 @@
             </div>
         </footer>
     </div>
+
+    <div class="botones-container">
+        <button id="capture-btn" class="btn capture-btn">📸 Capturar como Imagen</button>
+    </div>
+
+    <script>
+        // Capture Button
+        document.getElementById('capture-btn').addEventListener('click', function() {
+            const captureElement = document.getElementById('infografia-completa');
+            
+            html2canvas(captureElement, {
+                useCORS: true, // To handle images from other origins if any
+                scale: 2, // Increase scale for better resolution
+                backgroundColor: getComputedStyle(document.body).backgroundColor // Match body background
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'infografia-tecnologia.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        });
+    </script>
 
 </body>
 
