@@ -7,12 +7,19 @@
     <title>Enfoques de la Tecnología - Infografía Mejorada</title>
     <link rel="stylesheet" href="estilos.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="efectos.js" defer></script>
 </head>
 
-<body>
+<body class="theme-default">
+    <div id="custom-cursor"></div>
 
     <div id="infografia-completa" class="infografia-container">
         <header class="header">
+            <div class="theme-buttons">
+                <button id="theme-default" class="btn theme-btn"></button>
+                <button id="theme-light" class="btn theme-btn"></button>
+                <button id="theme-colorful" class="btn theme-btn"></button>
+            </div>
             <h1>Enfoques de la Tecnología</h1>
             <p>Una perspectiva comparativa: Instrumental vs. Relacional</p>
         </header>
@@ -113,6 +120,19 @@
                 link.href = canvas.toDataURL('image/png');
                 link.click();
             });
+        });
+
+        // Theme switcher
+        document.getElementById('theme-default').addEventListener('click', () => {
+            document.body.className = 'theme-default';
+        });
+
+        document.getElementById('theme-light').addEventListener('click', () => {
+            document.body.className = 'theme-light';
+        });
+
+        document.getElementById('theme-colorful').addEventListener('click', () => {
+            document.body.className = 'theme-colorful';
         });
     </script>
 
